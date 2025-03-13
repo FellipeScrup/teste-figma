@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Policial</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #7209b7;
+            --background-color: #f8f9fa;
+            --text-color: #2b2d42;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-color: #e1e1e1;
+            --input-bg: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 380px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            overflow: hidden;
+            padding: 30px;
+        }
+
+        .welcome-text {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group:last-of-type {
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 15px;
+            color: var(--text-color);
+            background-color: var(--input-bg);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        .login-btn {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            padding: 14px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-icon {
+            margin-right: 5px;
+        }
+
+        .shield-icon {
+            display: block;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .shield-icon span {
+            font-size: 32px;
+            color: white;
+        }
+
+        /* Modo escuro - Detectado automaticamente */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --text-color: #f8f9fa;
+                --border-color: #333;
+                --input-bg: #1f1f1f;
+                --shadow-color: rgba(0, 0, 0, 0.3);
+            }
+            
+            .login-container {
+                background-color: #1a1a1a;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="shield-icon">
+            <span>👮</span>
+        </div>
+        
+        <div class="welcome-text">
+            Seja bem-vindo, oficial.
+        </div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Usuário" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Senha" required>
+            </div>
+            
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        
+        <a href="index.html" class="back-link">
+            <span class="back-icon">←</span> Voltar
+        </a>
+    </div>
+
+    <script>
+        // Simulação de login para demonstração
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Aqui você adicionaria a lógica real de autenticação
+            if (username && password) {
+                // Redirecionar para a página de dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+    </script>
+</body>
+</html> 

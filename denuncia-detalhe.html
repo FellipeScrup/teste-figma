@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Denúncia</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #7209b7;
+            --background-color: #f8f9fa;
+            --text-color: #2b2d42;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-color: #e1e1e1;
+            --card-bg: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 20px 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            padding: 0 15px;
+        }
+
+        .denuncia-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 10px;
+        }
+
+        .info-group {
+            margin-bottom: 20px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .info-content {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-size: 15px;
+            color: var(--text-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-content.textarea {
+            min-height: 150px;
+            line-height: 1.5;
+        }
+
+        .btn-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(67, 97, 238, 0.1);
+        }
+
+        .btn-icon {
+            margin-right: 8px;
+        }
+
+        /* Modo escuro - Detectado automaticamente */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --text-color: #f8f9fa;
+                --border-color: #333;
+                --card-bg: #1a1a1a;
+                --shadow-color: rgba(0, 0, 0, 0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Denúncia Anônima</h1>
+        
+        <div class="denuncia-card">
+            <div class="info-group">
+                <div class="info-label">Tipo de atividade</div>
+                <div class="info-content">Violência</div>
+            </div>
+            
+            <div class="info-group">
+                <div class="info-label">Local da ocorrência</div>
+                <div class="info-content">Rua 22</div>
+            </div>
+            
+            <div class="info-group">
+                <div class="info-label">Data e Hora da ocorrência</div>
+                <div class="info-content">17/03/25 23:30</div>
+            </div>
+            
+            <div class="info-group">
+                <div class="info-label">Descrição da ocorrência</div>
+                <div class="info-content textarea">Fui agredido por um cidadão que usava X e estou aguardando as altoridades</div>
+            </div>
+            
+            <div class="btn-actions">
+                <button class="btn btn-secondary" onclick="location.href='dashboard.html'">
+                    <span class="btn-icon">←</span> Voltar
+                </button>
+                <button class="btn btn-primary">
+                    <span class="btn-icon">✓</span> Marcar como atendida
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script para marcar a denúncia como atendida
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            alert('Denúncia marcada como atendida!');
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 

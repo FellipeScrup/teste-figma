@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denúncia Anônima</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #7209b7;
+            --background-color: #f8f9fa;
+            --text-color: #2b2d42;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-color: #e1e1e1;
+            --input-bg: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 500px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            overflow: hidden;
+        }
+
+        .form-header {
+            padding: 25px 20px 15px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .form-content {
+            padding: 10px 20px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 15px;
+            color: var(--text-color);
+            background-color: var(--input-bg);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #aaa;
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232b2d42' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 16px;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .location-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .location-btn:hover {
+            background-color: rgba(67, 97, 238, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .location-icon {
+            margin-left: 8px;
+            color: #e74c3c;
+            font-size: 18px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-icon {
+            margin-right: 5px;
+        }
+
+        /* Modo escuro - Detectado automaticamente */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --text-color: #f8f9fa;
+                --border-color: #333;
+                --input-bg: #1f1f1f;
+                --shadow-color: rgba(0, 0, 0, 0.3);
+            }
+            
+            .container {
+                background-color: #1a1a1a;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <h1>Denúncia anônima</h1>
+        </div>
+        <div class="form-content">
+            <form id="denunciaForm">
+                <div class="form-group">
+                    <label for="tipoAtividade">Tipo de atividade</label>
+                    <select id="tipoAtividade" required>
+                        <option value="" disabled selected>Atividade suspeita</option>
+                        <option value="trafico">Violência</option>
+                        <option value="roubo">Roubo/Furto</option>
+                        <option value="violencia">Violência</option>
+                        <option value="corrupcao">Assassinato</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="local">Local da ocorrência</label>
+                    <button type="button" class="location-btn">
+                        Usar localização atual <span class="location-icon">📍</span>
+                    </button>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dataHora">Data e Hora da ocorrência</label>
+                    <input type="text" id="dataHora" placeholder="DD/MM/AA 00:00" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="descricao">Descrição da ocorrência</label>
+                    <textarea id="descricao" placeholder="Descrição" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Enviar denúncia</button>
+            </form>
+            
+            <a href="index.html" class="back-link">
+                <span class="back-icon">←</span> Voltar
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Função para obter localização atual
+        document.querySelector('.location-btn').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    document.getElementById('local').value = `Lat: ${latitude.toFixed(6)}, Long: ${longitude.toFixed(6)}`;
+                });
+            } else {
+                alert('Geolocalização não é suportada por este navegador.');
+            }
+        });
+        
+        // Prevenção de envio do formulário para demonstração
+        document.getElementById('denunciaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Denúncia enviada com sucesso!');
+            this.reset();
+        });
+    </script>
+</body>
+</html> 

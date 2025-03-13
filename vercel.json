@@ -1,0 +1,10 @@
+{
+  "name": "sistema-denuncias-anonimas",
+  "version": 2,
+  "builds": [
+    { "src": "*.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+} 
