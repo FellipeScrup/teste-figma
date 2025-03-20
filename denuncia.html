@@ -251,11 +251,11 @@
             }
         });
         
-        // Prevenção de envio do formulário para demonstração
+        // Prevenção de envio do formulário e redirecionamento
         document.getElementById('denunciaForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Denúncia enviada com sucesso!');
-            this.reset();
+            // Redirecionar para a página de sucesso
+            window.location.href = 'sucesso.html';
         });
     </script>
 </body>

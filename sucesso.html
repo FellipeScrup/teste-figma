@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denúncia Enviada</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #7209b7;
+            --success-color: #2ecc71;
+            --background-color: #f8f9fa;
+            --text-color: #2b2d42;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --card-bg: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        .success-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 40px 30px;
+            text-align: center;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px var(--shadow-color);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 25px;
+            background: var(--success-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        .success-icon span {
+            font-size: 50px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .success-message {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .protocol-number {
+            font-size: 14px;
+            color: #777;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.03);
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* Modo escuro - Detectado automaticamente */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --text-color: #f8f9fa;
+                --card-bg: #1a1a1a;
+                --shadow-color: rgba(0, 0, 0, 0.3);
+            }
+            
+            .success-message {
+                color: #aaa;
+            }
+            
+            .protocol-number {
+                color: #bbb;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">
+            <span>✓</span>
+        </div>
+        
+        <h1>Denúncia Enviada!</h1>
+        
+        <p class="success-message">
+            Sua denúncia foi enviada com sucesso e será analisada pelas autoridades competentes. Agradecemos sua contribuição para a segurança da comunidade.
+        </p>
+        
+        <div class="protocol-number">
+            Protocolo: <strong>ANO-20254879</strong>
+        </div>
+        
+        <a href="index.html" class="home-btn">Voltar ao Início</a>
+    </div>
+
+    <script>
+        // Gera um número de protocolo aleatório
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cria um protocolo com ano atual + números aleatórios
+            const ano = new Date().getFullYear();
+            const random = Math.floor(10000000 + Math.random() * 90000000);
+            const protocolo = `ANO-${random}`;
+            
+            // Atualiza o elemento HTML
+            document.querySelector('.protocol-number strong').textContent = protocolo;
+        });
+    </script>
+</body>
+</html> 
